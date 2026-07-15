@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>今天要离职吗？· 职场幸福感测评</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23060818'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle'%3E%F0%9F%9A%AA%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- ========== 百度统计代码（开始） ========== -->
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?4aa1458f8b343724f13a782d94e17623";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+  <!-- ========== 百度统计代码（结束） ========== -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --glass: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.15);
+      --text: #fff;
+      --muted: rgba(255,255,255,0.65);
+      --grad: linear-gradient(135deg, #22d3ee, #818cf8, #e879f9);
+    }
+    html { -webkit-tap-highlight-color: transparent; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      min-height: 100dvh; color: var(--text); background: #060818;
+      display: flex; justify-content: center; overflow-x: hidden;
+    }
+    .aurora { position: fixed; inset: 0; z-index: 0; overflow: hidden;
+      background: linear-gradient(160deg, #060818 0%, #0f1035 35%, #1a0a3a 65%, #2d0a2e 100%); }
+    .aurora .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.6;
+      animation: auroraFlow 22s ease-in-out infinite alternate; }
+    .blob-a { width: 80vw; height: 80vw; top: -22%; left: -20%; background: radial-gradient(circle, #1d4ed8, transparent 70%); }
+    .blob-b { width: 70vw; height: 70vw; bottom: -20%; right: -15%; background: radial-gradient(circle, #7e22ce, transparent 70%); animation-delay: -8s; }
+    .blob-c { width: 55vw; height: 55vw; top: 38%; left: 28%; background: radial-gradient(circle, rgba(236,72,153,.45), transparent 70%); animation-delay: -14s; animation-duration: 26s; }
+    @keyframes auroraFlow {
+      0% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(6vw,-5vh) scale(1.12); }
+      100% { transform: translate(-4vw,6vh) scale(1.06); }
+    }
+    .app { position: relative; z-index: 1; width: 100%; max-width: 480px; min-height: 100dvh;
+      display: flex; flex-direction: column; padding: 0 16px 32px; }
+    .glass {
+      background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border); border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(99,102,241,.22), inset 0 1px 0 rgba(255,255,255,.1);
+    }
+    .page-header { text-align: center; padding: 18px 14px; margin-bottom: 12px; }
+    .page-header h1 { font-size: 1.15rem; font-weight: 800; margin-bottom: 6px; line-height: 1.4; }
+    .page-header p { font-size: 0.78rem; color: var(--muted); }
+    .quiz-view { flex: 1; display: flex; flex-direction: column; padding-top: 12px; }
+    .quiz-view.hidden { display: none; }
+    .scene-badge { text-align: center; font-size: 0.78rem; font-weight: 600; color: #c4b5fd; margin-bottom: 8px; }
+    .scene-intro { text-align: center; font-size: 0.82rem; color: var(--muted); font-style: italic;
+      line-height: 1.55; margin-bottom: 14px; padding: 0 8px; animation: fadeIn .5s ease; }
+    .q-card { flex: 1; display: flex; flex-direction: column; padding: 24px 16px 20px; margin-bottom: 14px; min-height: 380px; }
+    .q-card.enter { animation: cardIn .45s cubic-bezier(.34,1.1,.64,1); }
+    .q-card.exit-left { animation: cardOutL .35s ease forwards; }
+    .q-card.exit-right { animation: cardOutR .35s ease forwards; }
+    @keyframes cardIn { from { opacity: 0; transform: translateX(40px) scale(.96); } to { opacity: 1; transform: none; } }
+    @keyframes cardOutL { to { opacity: 0; transform: translateX(-40px) scale(.96); } }
+    @keyframes cardOutR { to { opacity: 0; transform: translateX(40px) scale(.96); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .q-text { font-size: 1.05rem; font-weight: 700; line-height: 1.5; text-align: center; margin-bottom: 20px; }
+    .opts {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex: 1; align-content: start;
+      max-height: 340px; overflow-y: auto; overflow-x: hidden;
+      -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,.12) transparent;
+    }
+    .opts::-webkit-scrollbar { width: 4px; height: 0; }
+    .opts::-webkit-scrollbar-thumb { background: rgba(255,255,255,.12); border-radius: 2px; }
+    .opts.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .opts.cols-1 { grid-template-columns: 1fr; }
+    .opt {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 12px 8px; min-height: 72px; min-width: 0; overflow: hidden;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12); border-radius: 14px; cursor: pointer;
+      touch-action: manipulation; transition: transform .2s, border-color .2s, background .2s;
+    }
+    .opt:active, .opt.pressed { transform: scale(.92); }
+    .opt.selected {
+      background: rgba(99,102,241,.28); border-color: rgba(167,139,250,.7);
+      box-shadow: 0 0 20px rgba(129,140,248,.35);
+    }
+    .opt-emoji { font-size: 1.75rem; margin-bottom: 6px; line-height: 1; flex-shrink: 0; }
+    .opt-label {
+      font-size: 0.72rem; color: var(--muted); text-align: center; line-height: 1.35;
+      max-width: 100%; word-break: break-word; overflow-wrap: anywhere;
+    }
+    .opt.selected .opt-label { color: #fff; font-weight: 600; }
+    /* 防御：禁止选项内出现意外进度条/指示器 */
+    .opt .bar, .opt .progress, .opt .bar-track, .opt .bar-fill,
+    .opt [class*="bar"], .opt [class*="progress"] { display: none !important; }
+    .dots-wrap { display: flex; justify-content: center; gap: 5px; padding: 10px 0 6px; flex-wrap: wrap; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.18); transition: all .35s; }
+    .dot.done { background: rgba(129,140,248,.55); }
+    .dot.active { width: 18px; border-radius: 3px; background: var(--grad); box-shadow: 0 0 10px rgba(129,140,248,.5); }
+    .nav-row { display: flex; gap: 10px; margin-top: 4px; }
+    .btn { flex: 1; padding: 14px; font-size: 0.92rem; font-weight: 600; border: none; border-radius: 14px; cursor: pointer; touch-action: manipulation; }
+    .btn:active { transform: scale(.96); }
+    .btn-ghost { background: rgba(255,255,255,.07); color: var(--muted); border: 1px solid var(--border); }
+    .btn-ghost:disabled { opacity: .3; pointer-events: none; }
+    .btn-primary { background: var(--grad); color: #fff; box-shadow: 0 6px 24px rgba(99,102,241,.45); }
+    .btn-primary:disabled { opacity: .35; box-shadow: none; pointer-events: none; }
+    .footer-note { text-align: center; font-size: 0.72rem; color: var(--muted); margin-top: 14px; line-height: 1.6; }
+    .trend-up { color: #6ee7b7; font-weight: 700; }
+    .trend-down { color: #fca5a5; font-weight: 700; }
+    .btn-reset-link { display: block; margin: 8px auto 0; padding: 6px; font-size: 0.68rem; color: rgba(255,255,255,.28); background: none; border: none; cursor: pointer; }
+    .analyzing { flex: 1; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 24px; margin-top: 20px; }
+    .analyzing.show { display: flex; }
+    .crystal { font-size: 3.5rem; animation: pulse 1.2s ease-in-out infinite; margin-bottom: 20px; }
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); opacity: .75; } }
+    .analyzing p { font-size: 1rem; color: var(--muted); }
+    .result-view { display: none; padding-top: 12px; animation: fadeIn .5s ease; }
+    .result-view.show { display: block; }
+    .shared-banner { display: none; text-align: center; padding: 12px 16px; margin-bottom: 12px; font-size: 0.84rem;
+      color: #c4b5fd; background: rgba(99,102,241,.15); border: 1px solid rgba(167,139,250,.35); border-radius: 14px; }
+    .shared-banner.show { display: block; }
+    .data-summary { text-align: center; font-size: 0.76rem; color: var(--muted); margin-bottom: 12px; }
+    .result-hero { text-align: center; padding: 24px 16px 18px; margin-bottom: 12px; }
+    .ring-wrap { position: relative; width: 150px; height: 150px; margin: 0 auto 14px; }
+    .ring-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .ring-bg { fill: none; stroke: rgba(255,255,255,.1); stroke-width: 10; }
+    .ring-fg { fill: none; stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset 1.2s, stroke .4s; }
+    .ring-num-wrap { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .ring-num { font-size: 2.6rem; font-weight: 800; line-height: 1; }
+    .ring-sub { font-size: 0.68rem; color: var(--muted); margin-top: 4px; }
+    .ring-hint { font-size: 0.68rem; color: rgba(255,255,255,.4); margin-top: 6px; }
+    .verdict-main { font-size: 1.2rem; font-weight: 800; line-height: 1.45; margin-bottom: 8px; }
+    .verdict-fun { display: inline-block; padding: 5px 16px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; background: rgba(255,255,255,.08); margin-bottom: 8px; }
+    .workplace-tags { font-size: 0.88rem; font-weight: 700; color: #a5f3fc; margin: 10px 0 6px; line-height: 1.5; }
+    .benchmark { font-size: 0.82rem; color: #6ee7b7; margin-bottom: 8px; }
+    .heart-text { font-size: 0.84rem; color: var(--muted); font-style: italic; line-height: 1.55; padding: 0 8px; }
+    .section { padding: 16px; margin-bottom: 12px; }
+    .section h3 { font-size: 0.86rem; color: var(--muted); margin-bottom: 12px; font-weight: 600; }
+    .radar-box { display: flex; justify-content: center; margin-bottom: 8px; overflow: visible; }
+    #radarCanvas { width: 300px; height: 300px; display: block; }
+    .quiz-tip { text-align: center; font-size: 0.76rem; color: rgba(167,139,250,.9); margin-bottom: 14px; padding: 0 8px; line-height: 1.5; animation: fadeIn .5s ease; }
+    .dim-row { margin-bottom: 12px; }
+    .dim-head { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 5px; }
+    .dim-head span:last-child { font-weight: 700; color: #a5f3fc; }
+    .bar-track { height: 9px; background: rgba(255,255,255,.08); border-radius: 5px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 5px; width: 0; transition: width 1s cubic-bezier(.34,1.2,.64,1); }
+    .insights-list { list-style: none; }
+    .insights-list li { font-size: 0.84rem; line-height: 1.65; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
+    .resign-box { background: rgba(255,255,255,.04); border-radius: 12px; padding: 14px; font-size: 0.8rem; line-height: 1.7; color: rgba(255,255,255,.88); margin-bottom: 12px; font-style: italic; }
+    .btn-copy-all { width: 100%; padding: 14px; font-size: 0.9rem; font-weight: 600; border-radius: 14px; border: 1px solid var(--border); background: rgba(255,255,255,.07); color: #fff; cursor: pointer; margin-bottom: 12px; }
+    .btn-retest { width: 100%; padding: 14px; font-size: 0.9rem; font-weight: 600; border-radius: 14px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; margin-bottom: 8px; }
+    .toast { position: fixed; bottom: 72px; left: 50%; transform: translateX(-50%) translateY(16px); background: rgba(0,0,0,.82); color: #fff; padding: 10px 22px; border-radius: 24px; font-size: 0.82rem; opacity: 0; transition: all .3s; z-index: 99; pointer-events: none; white-space: nowrap; }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .site-footer { margin-top: auto; padding: 16px 0 10px; text-align: center; }
+    .site-meta { font-size: 0.62rem; color: rgba(255,255,255,.26); line-height: 1.65; }
+    .site-feedback { display: inline-block; margin-top: 4px; font-size: 0.62rem; color: rgba(255,255,255,.3); text-decoration: none; cursor: pointer; border: none; background: none; padding: 2px 4px; }
+    .site-feedback:hover, .site-feedback:active { color: rgba(255,255,255,.45); text-decoration: underline; }
+    .feedback-modal { position: fixed; inset: 0; z-index: 200; display: none; align-items: center; justify-content: center; padding: 24px; }
+    .feedback-modal.show { display: flex; }
+    .feedback-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.55); }
+    .feedback-box { position: relative; width: 100%; max-width: 340px; padding: 22px 18px; text-align: center; animation: fadeIn .3s ease; }
+    .feedback-box h4 { font-size: 0.95rem; margin-bottom: 10px; }
+    .feedback-box p { font-size: 0.8rem; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+    .feedback-box .btn { flex: none; width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="aurora"><div class="blob blob-a"></div><div class="blob blob-b"></div><div class="blob blob-c"></div></div>
+  <div class="app">
+    <div class="quiz-view" id="quizView">
+      <header class="page-header glass">
+        <h1>🚪 今天要离职吗？· 职场幸福感测评</h1>
+        <p>20 道硬核选择题，量化你的职场幸福度</p>
+      </header>
+      <div class="scene-badge" id="sceneBadge"></div>
+      <div class="scene-intro" id="sceneIntro"></div>
+      <div class="q-card glass" id="qCard">
+        <div class="q-text" id="qText"></div>
+        <div class="quiz-tip" id="quizTip"></div>
+        <div class="opts" id="opts"></div>
+      </div>
+      <div class="dots-wrap" id="dotsWrap"></div>
+      <div class="nav-row">
+        <button class="btn btn-ghost" id="btnPrev" disabled><i class="fa fa-chevron-left"></i> 上一步</button>
+        <button class="btn btn-primary" id="btnNext" disabled>下一步 <i class="fa fa-chevron-right"></i></button>
+      </div>
+      <div class="footer-note" id="footerNote">📅 暂无历史测试记录</div>
+      <button class="btn-reset-link" id="btnReset">🗑️ 清空所有数据</button>
+    </div>
+
+    <div class="analyzing glass" id="analyzing">
+      <div class="crystal">🎉</div>
+      <p id="analyzingText">数据采集完成，正在生成你的职场幸福报告...</p>
+    </div>
+
+    <div class="result-view" id="resultView">
+      <div class="shared-banner" id="sharedBanner">📎 朋友分享的测试结果</div>
+      <div class="data-summary" id="dataSummary">基于 20 项职场数据指标综合评估</div>
+      <div class="result-hero glass">
+        <div class="ring-wrap">
+          <svg viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+            <circle class="ring-fg" id="resultRing" cx="60" cy="60" r="52" stroke="#34d399" stroke-dasharray="326.73" stroke-dashoffset="326.73"></circle>
+          </svg>
+          <div class="ring-num-wrap">
+            <div class="ring-num" id="resultScore">0</div>
+            <div class="ring-sub">职场幸福度</div>
+          </div>
+        </div>
+        <div class="ring-hint">基于 20 项数据指标</div>
+        <div class="verdict-main" id="verdictMain"></div>
+        <span class="verdict-fun" id="verdictFun"></span>
+        <div class="workplace-tags" id="workplaceTags"></div>
+        <div class="benchmark" id="benchmark"></div>
+        <div class="heart-text" id="heartText"></div>
+      </div>
+
+      <div class="section glass">
+        <h3>📡 五维幸福雷达</h3>
+        <div class="radar-box"><canvas id="radarCanvas"></canvas></div>
+      </div>
+      <div class="section glass">
+        <h3>📊 五维度得分</h3>
+        <div id="dimBars"></div>
+      </div>
+      <div class="section glass">
+        <h3>🔥 幸福度分析</h3>
+        <ul class="insights-list" id="insights"></ul>
+      </div>
+      <div class="section glass">
+        <h3 id="letterHeading">🎭 给 HR 的信</h3>
+        <div class="resign-box" id="resignLetter"></div>
+      </div>
+      <button class="btn-copy-all" id="btnCopyAll">📤 一键分享给朋友</button>
+      <button class="btn-retest" id="btnRetest">🔄 重新测试</button>
+      <button class="btn-retest" id="btnTryMine" style="display:none">我也要测</button>
+      <div class="footer-note" id="resultFooter"></div>
+      <button class="btn-reset-link" id="btnReset2">🗑️ 清空所有数据</button>
+    </div>
+
+    <footer class="site-footer">
+      <p class="site-meta">v1.0 · 2026.07 · 一个打工人做的职场幸福感测评工具 · 数据仅保存在本地</p>
+      <button type="button" class="site-feedback" id="btnFeedback">反馈建议</button>
+    </footer>
+  </div>
+  <div class="toast" id="toast"></div>
+  <div class="feedback-modal" id="feedbackModal">
+    <div class="feedback-backdrop" id="feedbackBackdrop"></div>
+    <div class="feedback-box glass">
+      <h4>💬 反馈建议</h4>
+      <p>如有想法或发现问题，欢迎在小红书搜索「职场幸福感测评」留言反馈。你的建议会让这个工具变得更好！</p>
+      <button type="button" class="btn btn-primary" id="btnFeedbackClose">知道了</button>
+    </div>
+  </div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ═══ 5 大维度 · 20 题 ═══ */
+  const SCENES = [
+    { id: 'money',  icon: '💰', name: '经济回报',       qRange: [0, 3],  intro: '经济回报是职场幸福的基础盘，先看钱袋子。' },
+    { id: 'time',   icon: '⏰', name: '时间与体力消耗', qRange: [4, 7],  intro: '时间与体力，决定了你能不能把日子过好。' },
+    { id: 'growth', icon: '📈', name: '成长与发展空间', qRange: [8, 11], intro: '成长空间决定了你的未来曲线。' },
+    { id: 'social', icon: '🤝', name: '人际与环境',     qRange: [12, 15], intro: '人对了，上班才像上班。' },
+    { id: 'mental', icon: '❤️', name: '心理与生活平衡', qRange: [16, 19], intro: '心里舒不舒坦，才是最终的答案。' }
+  ];
+
+  const QUESTIONS = [
+    { short: '月薪范围', text: '你的税前月薪范围是？', options: [
+      { emoji: '🚀', label: '3万以上', score: 5 }, { emoji: '💰', label: '2万-3万', score: 4 },
+      { emoji: '📊', label: '1.5万-2万', score: 3 }, { emoji: '📉', label: '1万-1.5万', score: 1 },
+      { emoji: '💸', label: '7000-1万', score: -1 }, { emoji: '🥀', label: '5000-7000', score: -3 },
+      { emoji: '😰', label: '3000-5000', score: -5 }, { emoji: '💔', label: '3000以下', score: -7 }
+    ]},
+    { short: '年终奖', text: '你的年终奖/绩效奖金大概是多少？', options: [
+      { emoji: '🎉', label: '6个月以上', score: 5 }, { emoji: '💰', label: '4-6个月', score: 4 },
+      { emoji: '📦', label: '2-4个月', score: 2 }, { emoji: '📁', label: '1-2个月', score: 0 },
+      { emoji: '💸', label: '有但很少', score: -2 }, { emoji: '😤', label: '没有年终奖', score: -5 }
+    ]},
+    { short: '五险一金', text: '公司五险一金缴纳情况？', options: [
+      { emoji: '🏅', label: '全额缴纳（顶格）', score: 3 }, { emoji: '⚖️', label: '按实际工资缴纳', score: 1 },
+      { emoji: '📊', label: '按最低基数缴纳', score: -2 }, { emoji: '😥', label: '只有五险无一金', score: -4 },
+      { emoji: '💔', label: '什么都没有', score: -6 }
+    ]},
+    { short: '涨薪时间', text: '最近一次涨薪是什么时候？', options: [
+      { emoji: '🚀', label: '半年内', score: 4 }, { emoji: '📈', label: '一年内', score: 2 },
+      { emoji: '⏳', label: '两年前', score: -2 }, { emoji: '😰', label: '三年以上没涨', score: -5 },
+      { emoji: '💀', label: '从来没涨过', score: -7 }
+    ]},
+    { short: '工作时长', text: '你每天实际工作多久？', options: [
+      { emoji: '🌅', label: '7小时以内', score: 5 }, { emoji: '🌇', label: '7-8小时（到点走）', score: 3 },
+      { emoji: '🌃', label: '8-9小时（偶尔加班）', score: 0 }, { emoji: '🌙', label: '9-10小时（经常加班）', score: -2 },
+      { emoji: '💀', label: '10-12小时（常态加班）', score: -4 }, { emoji: '🔥', label: '12小时以上', score: -7 }
+    ]},
+    { short: '通勤时长', text: '单程通勤需要多久？', options: [
+      { emoji: '🚶', label: '15分钟内', score: 4 }, { emoji: '🚌', label: '15-30分钟', score: 2 },
+      { emoji: '🚇', label: '30-45分钟', score: 0 }, { emoji: '🚗', label: '45-60分钟', score: -2 },
+      { emoji: '🚄', label: '60-90分钟', score: -4 }, { emoji: '✈️', label: '90分钟以上', score: -6 }
+    ]},
+    { short: '加班补偿', text: '加班有补偿吗？', options: [
+      { emoji: '💰', label: '有加班费（法定标准）', score: 4 }, { emoji: '📅', label: '有调休且能休', score: 2 },
+      { emoji: '📅', label: '有调休但难申请', score: -1 }, { emoji: '😤', label: '什么都没有（义务加班）', score: -5 }
+    ]},
+    { short: '工作节奏', text: '你的工作节奏是？', options: [
+      { emoji: '🌊', label: '节奏平稳，张弛有度', score: 4 }, { emoji: '⚡', label: '偶尔高压，总体可控', score: 1 },
+      { emoji: '🔥', label: '长期高压，但能承受', score: -2 }, { emoji: '💣', label: '随时待命，精神紧绷', score: -5 },
+      { emoji: '🚨', label: '7×24小时在线', score: -7 }
+    ]},
+    { short: '学习成长', text: '你在当前岗位能学到新东西吗？', options: [
+      { emoji: '🧠', label: '每天都在成长', score: 4 }, { emoji: '📖', label: '偶尔有学习机会', score: 1 },
+      { emoji: '🔄', label: '重复性工作，学不到什么', score: -3 }, { emoji: '🧟', label: '完全在消耗已有经验', score: -5 }
+    ]},
+    { short: '晋升通道', text: '公司的晋升通道清晰吗？', options: [
+      { emoji: '🪜', label: '非常清晰，有明确路径', score: 4 }, { emoji: '🏔️', label: '有晋升机会，但竞争激烈', score: 1 },
+      { emoji: '🎲', label: '有机会但靠关系/运气', score: -2 }, { emoji: '🧱', label: '几乎没有晋升空间', score: -5 },
+      { emoji: '🎭', label: '纯画饼，没见过人升职', score: -6 }
+    ]},
+    { short: '行业态势', text: '你所在行业目前整体发展态势？', options: [
+      { emoji: '🚀', label: '高速增长，前景广阔', score: 4 }, { emoji: '📊', label: '平稳发展', score: 1 },
+      { emoji: '📉', label: '增长放缓，竞争激烈', score: -2 }, { emoji: '💀', label: '行业萎缩，在裁员', score: -5 },
+      { emoji: '🤖', label: '随时可能被AI取代', score: -7 }
+    ]},
+    { short: '公司经营', text: '公司目前的经营状况？', options: [
+      { emoji: '🏆', label: '行业龙头，非常稳健', score: 4 }, { emoji: '📈', label: '盈利良好，稳定发展', score: 1 },
+      { emoji: '📊', label: '勉强维持，没有增长', score: -2 }, { emoji: '📉', label: '业务下滑，在裁员边缘', score: -5 },
+      { emoji: '💥', label: '随时可能暴雷/倒闭', score: -7 }
+    ]},
+    { short: '同事关系', text: '你和同事的关系如何？', options: [
+      { emoji: '🤗', label: '像朋友一样，互相支持', score: 4 }, { emoji: '😊', label: '和谐友好，各干各的', score: 1 },
+      { emoji: '😶', label: '表面客气，私下不熟', score: -1 }, { emoji: '🐍', label: '有小团体，勾心斗角', score: -4 },
+      { emoji: '💀', label: '每天都被同事内耗', score: -6 }
+    ]},
+    { short: '领导风格', text: '你直属领导的管理风格是？', options: [
+      { emoji: '🌟', label: '教练型，带人成长', score: 5 }, { emoji: '🙌', label: '放权型，给空间', score: 2 },
+      { emoji: '⚖️', label: '中庸型，不添乱', score: 0 }, { emoji: '🔍', label: '控制型，事无巨细', score: -3 },
+      { emoji: '😤', label: 'PUA型，打压否定', score: -6 }, { emoji: '🌀', label: '甩锅型，没担当', score: -5 }
+    ]},
+    { short: '公司文化', text: '公司文化和氛围怎么样？', options: [
+      { emoji: '🌈', label: '开放包容，尊重个体', score: 4 }, { emoji: '😊', label: '正常工作氛围', score: 1 },
+      { emoji: '😶', label: '压抑沉闷，大家不敢说话', score: -3 }, { emoji: '🐺', label: '狼性文化，天天打鸡血', score: -4 },
+      { emoji: '💥', label: '混乱无序，职责不清', score: -5 }
+    ]},
+    { short: '职场霸凌', text: '你有没有被职场霸凌或歧视的经历？', options: [
+      { emoji: '✅', label: '完全没有', score: 2 }, { emoji: '⚠️', label: '偶尔遇到', score: -2 },
+      { emoji: '🚨', label: '经常遇到', score: -6 }
+    ]},
+    { short: '下班边界', text: '下班后你能完全放下工作吗？', options: [
+      { emoji: '🏖️', label: '完全可以，下班即失联', score: 4 }, { emoji: '😊', label: '大部分时间可以', score: 1 },
+      { emoji: '⚠️', label: '偶尔会被工作打扰', score: -2 }, { emoji: '😰', label: '经常在休息时处理工作', score: -4 },
+      { emoji: '💀', label: '从来没有真正下班过', score: -6 }
+    ]},
+    { short: '工作压力', text: '你的整体工作压力感受是？', options: [
+      { emoji: '🌊', label: '压力适度，有动力', score: 4 }, { emoji: '⚡', label: '偶尔焦虑，总体可控', score: 1 },
+      { emoji: '🔥', label: '经常失眠，压力很大', score: -3 }, { emoji: '💔', label: '已严重影响身心健康', score: -6 }
+    ]},
+    { short: '工作热情', text: '你对这份工作还有热情吗？', options: [
+      { emoji: '🔥', label: '非常有热情，有使命感', score: 5 }, { emoji: '😊', label: '还有一点激情', score: 1 },
+      { emoji: '😶', label: '没感觉，就为了挣钱', score: -2 }, { emoji: '😰', label: '厌倦了，每天都在熬', score: -5 }
+    ]},
+    { short: '内心想法', text: '综合所有因素，你内心真实的想法是？', options: [
+      { emoji: '🏠', label: '完全不想离职', score: 5 }, { emoji: '🧘', label: '暂时不考虑', score: 2 },
+      { emoji: '💭', label: '偶尔会想，但没行动', score: 0 }, { emoji: '🔍', label: '已经在看机会了', score: -3 },
+      { emoji: '🏃', label: '已经在面试/提流程了', score: -6 }
+    ]}
+  ];
+
+  /** 7 档（高分=幸福） */
+  const TIERS = [
+    { min: 80, level: '🟢 极度幸福', shortLevel: '极度幸福', title: '梦中情工！拉仇恨级别！', fun: '🏆 职场天选之子', color: '#34d399' },
+    { min: 60, level: '🟢 非常幸福', shortLevel: '非常幸福', title: '神仙岗位！打死也不能走！', fun: '🧘 职场佛系大神', color: '#6ee7b7' },
+    { min: 45, level: '🟡 中等幸福', shortLevel: '中等幸福', title: '中规中矩，还算不错', fun: '🐴 骑驴找马选手', color: '#fbbf24' },
+    { min: 30, level: '🟠 有点心累', shortLevel: '有点心累', title: '不太妙，建议调整状态', fun: '📝 简历优化师', color: '#fb923c' },
+    { min: 18, level: '🟠 比较糟糕', shortLevel: '比较糟糕', title: '快逃！这份工作在消耗你', fun: '🏃 跑路预备役', color: '#f97316' },
+    { min: 6,  level: '🔴 非常糟糕', shortLevel: '非常糟糕', title: '这是在坐牢！立刻准备离开！', fun: '🔥 逃离火场人', color: '#f87171' },
+    { min: 0,  level: '🔴 极度糟糕', shortLevel: '极度糟糕', title: '求求你救救自己，快走吧！！', fun: '💀 职场濒危物种', color: '#ef4444' }
+  ];
+
+  const DIM_KEYS = [
+    { key: 'salary', sceneId: 'money' },
+    { key: 'intensity', sceneId: 'time' },
+    { key: 'growth', sceneId: 'growth' },
+    { key: 'social', sceneId: 'social' },
+    { key: 'feeling', sceneId: 'mental' }
+  ];
+
+  const SCENE_LIMITS = {
+    money:  { min: -6.25, max: 4.25 },
+    time:   { min: -6.25, max: 4.25 },
+    growth: { min: -6.25, max: 4.25 },
+    social: { min: -5.75, max: 3.75 },
+    mental: { min: -5.75, max: 4.5 }
+  };
+
+  const HIGH_TAGS = { money: '💰 高薪战士', time: '⏰ 时间富翁', growth: '📈 上升火箭', social: '🤝 社交达人', mental: '❤️ 精神富翁' };
+  const LOW_TAGS  = { money: '💸 薪资难民', time: '🕒 时间穷人', growth: '🧱 职业天花板', social: '🐍 人际消耗者', mental: '💔 精神难民' };
+
+  const HEART_TEXTS = [
+    { min: 80, text: '你拉高了全中国人的职场幸福感，建议请同事吃饭' },
+    { min: 60, text: '你挺幸运的，但别让幸运变成习惯' },
+    { min: 45, text: '别急着跑，但也别把根扎得太深' },
+    { min: 30, text: '这不是你的终点，但可能是你的转折点' },
+    { min: 18, text: '你值得更好的，但你需要先相信自己' },
+    { min: 0,  text: '你还在等什么？改变就在今天' }
+  ];
+
+  const STORAGE_KEY = 'quitQuiz_v3';
+  const HISTORY_KEY = 'quitQuiz_history_v3';
+  const RESULT_KEY = 'quitQuiz_result_v3';
+  const RING_C = 2 * Math.PI * 52;
+  const TOTAL_Q = 20;
+  const BAR_COLORS = ['#818cf8', '#22d3ee', '#a78bfa', '#f472b6', '#fb7185'];
+
+  let currentQ = 0;
+  let answers = new Array(TOTAL_Q).fill(null);
+  let lastResult = null;
+  let isAnimating = false;
+  let isSharedView = false;
+
+  function qScore(qi) { return answers[qi] === null ? 0 : QUESTIONS[qi].options[answers[qi]].score; }
+  function rawTotal() { return answers.reduce((s, _, i) => s + (answers[i] !== null ? qScore(i) : 0), 0); }
+  /** 百分制：(raw + 95) / 185 * 100 */
+  function toPercent(raw) { return Math.max(0, Math.min(100, Math.round(((raw + 95) / 185) * 100))); }
+  function getTier(pct) { for (const t of TIERS) { if (pct >= t.min) return t; } return TIERS[TIERS.length - 1]; }
+  function getTierByLevel(sl, pct) { return TIERS.find(t => t.shortLevel === sl) || getTier(pct); }
+  function getScene(qi) { return SCENES.find(s => qi >= s.qRange[0] && qi <= s.qRange[1]); }
+  function allDone() { return answers.every(a => a !== null); }
+
+  function sceneRawAvg(scene) {
+    let sum = 0, cnt = 0;
+    for (let i = scene.qRange[0]; i <= scene.qRange[1]; i++) {
+      if (answers[i] !== null) { sum += qScore(i); cnt++; }
+    }
+    return cnt ? sum / cnt : 0;
+  }
+
+  function sceneToTen(scene) {
+    const avg = sceneRawAvg(scene);
+    const lim = SCENE_LIMITS[scene.id];
+    const v = ((avg - lim.min) / (lim.max - lim.min)) * 9 + 1;
+    return Math.max(1, Math.min(10, Math.round(v * 10) / 10));
+  }
+
+  function dimsFromAnswers() { return SCENES.map(s => ({ ...s, ten: sceneToTen(s) })); }
+
+  function buildDimScores(salary, intensity, growth, social, feeling) {
+    const vals = { salary, intensity, growth, social, feeling };
+    return DIM_KEYS.map(dk => {
+      const scene = SCENES.find(s => s.id === dk.sceneId);
+      return { ...scene, key: dk.key, ten: vals[dk.key] };
+    });
+  }
+
+  /** 根据分数区间生成随机排名百分比 */
+  function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+  function generateRankPct(pct) {
+    if (pct >= 90) return randInt(90, 99);
+    if (pct >= 70) return randInt(65, 88);
+    if (pct >= 50) return randInt(45, 64);
+    if (pct >= 30) return randInt(20, 44);
+    if (pct >= 10) return randInt(8, 19);
+    return randInt(1, 7);
+  }
+
+  function answersHash() { return answers.join(','); }
+
+  function saveResultState(result) {
+    try {
+      localStorage.setItem(RESULT_KEY, JSON.stringify({
+        pct: result.pct, rankPct: result.rankPct, level: result.level, tag: result.tag,
+        heartText: result.heartText, letterTitle: result.letter.title, letterBody: result.letter.body,
+        answersHash: answersHash()
+      }));
+    } catch (_) {}
+  }
+
+  function loadResultState() {
+    try { return JSON.parse(localStorage.getItem(RESULT_KEY)); } catch (_) { return null; }
+  }
+
+  function resolveRankPct(pct, provided) {
+    if (provided != null && !isNaN(provided)) return provided;
+    const saved = loadResultState();
+    if (saved && saved.pct === pct && saved.answersHash === answersHash()) return saved.rankPct;
+    return generateRankPct(pct);
+  }
+
+  function buildHRLetter(pct, tier) {
+    const tag = tier.fun;
+    if (pct >= 80) {
+      return {
+        title: '给HR的表白信',
+        body: `亲爱的HR：\n\n经过《今天要离职吗？》科学测算，我的职场幸福度高达 ${pct} 分，属于【${tag}】。我决定向公司表白——这份工作我爱了！只要公司不赶我走，我绝不主动离开。\n\n此致敬礼，\n一个幸福的打工人`
+      };
+    }
+    if (pct >= 60) {
+      return {
+        title: '给HR的留任信',
+        body: `亲爱的HR：\n\n经过《今天要离职吗？》科学测算，我的职场幸福度为 ${pct} 分，属于【${tag}】。我对现状整体满意，愿意继续留任，一起把公司做大做强。\n\n此致敬礼，\n一个稳住的打工人`
+      };
+    }
+    if (pct >= 45) {
+      return {
+        title: '给HR的思考信',
+        body: `亲爱的HR：\n\n经过《今天要离职吗？》科学测算，我的职场幸福度为 ${pct} 分，属于【${tag}】。我在思考自己的职业方向，暂时没有离开的决定，但我希望和公司一起成长。\n\n此致敬礼，\n一个在思考的打工人`
+      };
+    }
+    if (pct >= 30) {
+      return {
+        title: '给HR的考虑信',
+        body: `亲爱的HR：\n\n经过《今天要离职吗？》科学测算，我的职场幸福度为 ${pct} 分，属于【${tag}】。我在认真考虑其他可能性，未来可能会做出一些改变。\n\n此致敬礼，\n一个在考虑的打工人`
+      };
+    }
+    return {
+      title: '给HR的离职信',
+      body: `尊敬的HR：\n\n经过《今天要离职吗？》科学测算，我的职场幸福度仅 ${pct} 分（${tier.level}），属于【${tag}】级别。特此申请离职，去追寻诗和远方。\n\n此致敬礼，\n一个被工作耽误的诗人`
+    };
+  }
+
+  function buildCopyAllText(result) {
+    const { pct } = result;
+    const url = buildShareUrl(result.pct, result.tier, result.dims, result.rankPct);
+    let hook;
+    if (pct >= 91) {
+      hook = '测了一下我的工位性价比……高到我自己都不好意思了。先不聊了，我去给老板画饼。';
+    } else if (pct >= 81) {
+      hook = '我的工位性价比……有点高。建议HR不要找我谈话，我怕我笑出声。';
+    } else if (pct >= 71) {
+      hook = '测了，还行，暂时不卷。建议老板也别来卷我。';
+    } else if (pct >= 61) {
+      hook = '我的工位性价比：能活，能摸，能下班。够了。';
+    } else if (pct >= 51) {
+      hook = '食之无味，弃之可惜。说得就是我。有没有人跟我一样的？';
+    } else if (pct >= 41) {
+      hook = '工位性价比测完了，结论：我是驴，但我在看马。';
+    } else if (pct >= 31) {
+      hook = '工位性价比：负数。不说了，HR站我后面了。';
+    } else if (pct >= 21) {
+      hook = '上班不是打工，是渡劫。我测完了，你呢？';
+    } else if (pct >= 11) {
+      hook = '我的工位性价比……算了，我还有工位就不错了。';
+    } else {
+      hook = '上辈子造孽，这辈子上班。我不测了，我要去辞职。';
+    }
+    return `${hook}\n${url}`;
+  }
+
+  function getHeartText(pct) {
+    for (const h of HEART_TEXTS) { if (pct >= h.min) return h.text; }
+    return HEART_TEXTS[HEART_TEXTS.length - 1].text;
+  }
+
+  function getWorkplaceTags(dims) {
+    const sorted = [...dims].sort((a, b) => b.ten - a.ten);
+    const high = sorted[0], low = sorted[sorted.length - 1];
+    const main = high.ten >= 7 ? HIGH_TAGS[high.id] : '';
+    const sub = low.ten <= 3 ? LOW_TAGS[low.id] : '';
+    if (main && sub) return main + ' · ' + sub;
+    if (main) return main;
+    if (sub) return sub;
+    return '🧑‍💼 普通打工人';
+  }
+
+  function saveProgress() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ currentQ, answers })); } catch (_) {}
+  }
+  function loadProgress() {
+    try {
+      const d = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      if (d && d.answers && d.answers.length === TOTAL_Q) {
+        answers = d.answers.map((a, i) => {
+          if (a === null) return null;
+          const n = Number(a);
+          if (!Number.isInteger(n) || n < 0 || n >= QUESTIONS[i].options.length) return null;
+          return n;
+        });
+      }
+      if (d && typeof d.currentQ === 'number') currentQ = Math.min(TOTAL_Q - 1, Math.max(0, d.currentQ));
+    } catch (_) {}
+  }
+  function saveHistory(pct, tier) {
+    let h = [];
+    try { const r = localStorage.getItem(HISTORY_KEY); if (r) h = JSON.parse(r); } catch (_) {}
+    h.push({ date: new Date().toISOString(), score: pct, level: tier.level, fun: tier.fun });
+    if (h.length > 30) h = h.slice(-30);
+    try { localStorage.setItem(HISTORY_KEY, JSON.stringify(h)); } catch (_) {}
+  }
+  function getHistory() { try { return JSON.parse(localStorage.getItem(HISTORY_KEY)) || []; } catch (_) { return []; } }
+
+  function vibrate() { if (navigator.vibrate) navigator.vibrate(12); }
+
+  const quizView = document.getElementById('quizView');
+  const qCard = document.getElementById('qCard');
+  const resultView = document.getElementById('resultView');
+  const analyzing = document.getElementById('analyzing');
+
+  function getQuizTip(qi) {
+    if (qi < 5) return '💡 数据越真实，报告越精准';
+    if (qi < 10) return '📊 已完成一半！你的真实数据正在生成专属报告';
+    if (qi < 15) return '🚀 坚持住，结果即将揭晓';
+    return '🏁 最后几题，你的职场画像马上完成';
+  }
+
+  function renderDots() {
+    document.getElementById('dotsWrap').innerHTML = Array.from({ length: TOTAL_Q }, (_, i) => {
+      let cls = 'dot' + (i === currentQ ? ' active' : answers[i] !== null ? ' done' : '');
+      return `<div class="${cls}"></div>`;
+    }).join('');
+  }
+
+  function renderQuestion() {
+    const q = QUESTIONS[currentQ];
+    const scene = getScene(currentQ);
+    const isFirst = currentQ === scene.qRange[0];
+    document.getElementById('sceneBadge').textContent = `${scene.icon} 维度：${scene.name}`;
+    document.getElementById('sceneIntro').textContent = isFirst ? scene.intro : '';
+    document.getElementById('sceneIntro').style.display = isFirst ? 'block' : 'none';
+    document.getElementById('qText').textContent = q.text;
+    document.getElementById('quizTip').textContent = getQuizTip(currentQ);
+    const optsEl = document.getElementById('opts');
+    const cnt = q.options.length;
+    optsEl.className = 'opts' + (cnt >= 6 ? ' cols-3' : cnt <= 2 ? ' cols-1' : '');
+    optsEl.innerHTML = q.options.map((o, i) =>
+      `<div class="opt ${answers[currentQ] === i ? 'selected' : ''}" data-i="${i}">
+        <span class="opt-emoji">${o.emoji}</span><span class="opt-label">${o.label}</span></div>`
+    ).join('');
+    optsEl.querySelectorAll('.opt').forEach(el => el.addEventListener('click', () => selectOption(+el.dataset.i, el)));
+    qCard.className = 'q-card glass enter';
+    renderDots();
+    updateNav();
+    saveProgress();
+  }
+
+  function selectOption(idx, el) {
+    vibrate();
+    el.classList.add('pressed');
+    setTimeout(() => el.classList.remove('pressed'), 200);
+    answers[currentQ] = idx;
+    document.querySelectorAll('.opt').forEach((o, i) => o.classList.toggle('selected', i === idx));
+    renderDots(); updateNav(); saveProgress();
+    if (currentQ < TOTAL_Q - 1) setTimeout(() => goNext(), 380);
+    else if (allDone()) setTimeout(() => showReport(), 380);
+  }
+
+  function updateNav() {
+    document.getElementById('btnPrev').disabled = currentQ === 0;
+    const btn = document.getElementById('btnNext');
+    if (currentQ === TOTAL_Q - 1) {
+      btn.innerHTML = allDone() ? '查看我的报告 <i class="fa fa-magic"></i>' : '请完成全部题目';
+      btn.disabled = !allDone();
+    } else {
+      btn.innerHTML = '下一步 <i class="fa fa-chevron-right"></i>';
+      btn.disabled = answers[currentQ] === null;
+    }
+  }
+
+  function transitionTo(newQ, dir) {
+    if (isAnimating) return;
+    isAnimating = true;
+    qCard.classList.remove('enter');
+    qCard.classList.add(dir > 0 ? 'exit-left' : 'exit-right');
+    setTimeout(() => { currentQ = newQ; renderQuestion(); isAnimating = false; }, 320);
+  }
+
+  function goNext() {
+    if (currentQ === TOTAL_Q - 1) { if (allDone()) showReport(); return; }
+    if (answers[currentQ] === null) return;
+    transitionTo(currentQ + 1, 1);
+  }
+  function goPrev() { if (currentQ > 0) transitionTo(currentQ - 1, -1); }
+
+  function showReport() {
+    quizView.classList.add('hidden');
+    document.getElementById('analyzingText').textContent = '🎉 数据采集完成，正在生成你的职场幸福报告...';
+    analyzing.classList.add('show');
+    setTimeout(() => {
+      analyzing.classList.remove('show');
+      const pct = toPercent(rawTotal());
+      const tier = getTier(pct);
+      const rankPct = resolveRankPct(pct, null);
+      renderResult({ pct, tier, level: tier.shortLevel, tag: tier.fun, dims: dimsFromAnswers(), rankPct, fromShare: false });
+      saveHistory(pct, tier);
+      resultView.classList.add('show');
+    }, 1500);
+  }
+
+  /** 绘制五维雷达图（DPR 适配 + 完整维度标签） */
+  function drawRadar(canvas, dims) {
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    const W = rect.width || 300;
+    const H = rect.height || 300;
+    canvas.width = Math.round(W * dpr);
+    canvas.height = Math.round(H * dpr);
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+
+    const ctx = canvas.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+
+    const cx = W / 2, cy = H / 2;
+    const chartSize = Math.min(W, H);
+    const fontSize = Math.round(Math.max(11, Math.min(13, chartSize / 24)));
+    const labelPad = fontSize * 2.8;
+    const maxR = chartSize * 0.26;
+    const labelR = maxR + labelPad;
+    const n = dims.length;
+    const step = (Math.PI * 2) / n, start = -Math.PI / 2;
+
+    for (let lv = 1; lv <= 5; lv++) {
+      const r = (maxR / 5) * lv;
+      ctx.beginPath();
+      for (let i = 0; i < n; i++) {
+        const a = start + i * step, x = cx + r * Math.cos(a), y = cy + r * Math.sin(a);
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.strokeStyle = 'rgba(255,255,255,.1)'; ctx.lineWidth = 1; ctx.stroke();
+    }
+    for (let i = 0; i < n; i++) {
+      const a = start + i * step;
+      ctx.beginPath(); ctx.moveTo(cx, cy);
+      ctx.lineTo(cx + maxR * Math.cos(a), cy + maxR * Math.sin(a));
+      ctx.strokeStyle = 'rgba(255,255,255,.08)'; ctx.lineWidth = 1; ctx.stroke();
+    }
+    const pts = dims.map((d, i) => {
+      const a = start + i * step, r = (d.ten / 10) * maxR;
+      return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
+    });
+    const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, maxR);
+    grad.addColorStop(0, 'rgba(52,211,153,0.5)'); grad.addColorStop(1, 'rgba(129,140,248,0.2)');
+    ctx.beginPath();
+    pts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+    ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
+    ctx.strokeStyle = 'rgba(110,231,183,0.85)'; ctx.lineWidth = 2; ctx.stroke();
+
+    ctx.fillStyle = 'rgba(255,255,255,.92)';
+    ctx.font = `${fontSize}px -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif`;
+
+    dims.forEach((d, i) => {
+      const a = start + i * step;
+      const cos = Math.cos(a), sin = Math.sin(a);
+      let lx = cx + labelR * cos;
+      let ly = cy + labelR * sin;
+      let align = 'center', baseline = 'middle';
+
+      if (sin < -0.55) { baseline = 'bottom'; ly -= 2; }
+      else if (sin > 0.55) { baseline = 'top'; ly += 2; }
+      else if (cos > 0.15) { align = 'left'; lx += 5; }
+      else if (cos < -0.15) { align = 'right'; lx -= 5; }
+
+      ctx.textAlign = align;
+      ctx.textBaseline = baseline;
+      const tw = ctx.measureText(d.name).width;
+      const margin = 3;
+
+      if (align === 'center') {
+        lx = Math.max(margin + tw / 2, Math.min(W - margin - tw / 2, lx));
+      } else if (align === 'left') {
+        lx = Math.max(margin, Math.min(W - margin - tw, lx));
+      } else {
+        lx = Math.max(margin + tw, Math.min(W - margin, lx));
+      }
+      ly = Math.max(fontSize * 0.6, Math.min(H - fontSize * 0.4, ly));
+      ctx.fillText(d.name, lx, ly);
+    });
+  }
+
+  function renderResult(data) {
+    const { pct, tier, tag, dims, fromShare } = data;
+    const rankPct = resolveRankPct(pct, data.rankPct);
+    const heartText = data.heartText || getHeartText(pct);
+    const letter = data.letter || buildHRLetter(pct, { ...tier, fun: tag });
+    lastResult = { pct, tier, level: data.level, tag, dims, rankPct, heartText, letter, fromShare: !!fromShare };
+
+    document.getElementById('sharedBanner').classList.toggle('show', !!fromShare);
+    document.getElementById('btnRetest').style.display = fromShare ? 'none' : 'block';
+    document.getElementById('btnTryMine').style.display = fromShare ? 'block' : 'none';
+    document.getElementById('btnCopyAll').style.display = fromShare ? 'none' : 'block';
+
+    const ring = document.getElementById('resultRing');
+    ring.style.strokeDashoffset = RING_C * (1 - pct / 100);
+    ring.style.stroke = tier.color;
+    document.getElementById('resultScore').textContent = pct;
+    document.getElementById('verdictMain').textContent = tier.title;
+    const funEl = document.getElementById('verdictFun');
+    funEl.textContent = tag;
+    funEl.style.color = tier.color;
+    funEl.style.border = `1px solid ${tier.color}44`;
+
+    document.getElementById('workplaceTags').textContent = getWorkplaceTags(dims);
+    document.getElementById('benchmark').textContent = `🏆 你的幸福度超过了 ${rankPct}% 的打工人`;
+    document.getElementById('heartText').textContent = heartText;
+
+    requestAnimationFrame(() => requestAnimationFrame(() => drawRadar(document.getElementById('radarCanvas'), dims)));
+
+    document.getElementById('dimBars').innerHTML = dims.map((d, i) => `
+      <div class="dim-row">
+        <div class="dim-head"><span>${d.icon} ${d.name}</span><span>${d.ten} / 10</span></div>
+        <div class="bar-track"><div class="bar-fill" data-w="${d.ten * 10}" style="background:${BAR_COLORS[i]}"></div></div>
+      </div>`).join('');
+    requestAnimationFrame(() => document.querySelectorAll('#dimBars .bar-fill').forEach(b => { b.style.width = b.dataset.w + '%'; }));
+
+    const ranked = [...dims].sort((a, b) => b.ten - a.ten);
+    const high = ranked[0], second = ranked[1], low = ranked[ranked.length - 1];
+    document.getElementById('insights').innerHTML = [
+      `你的【${high.name}】表现最好（${high.ten}/10），${getHighInsight(high.id)}`,
+      low.ten <= 4
+        ? `【${low.name}】得分最低（${low.ten}/10），${getLowInsight(low.id)}`
+        : `【${second.name}】也有提升空间（${second.ten}/10），值得持续优化。`,
+      getConflictInsight(ranked, pct)
+    ].map(t => `<li>${t}</li>`).join('');
+
+    document.getElementById('letterHeading').textContent = `🎭 给 HR 的「${letter.title}」`;
+    document.getElementById('resignLetter').textContent = letter.body;
+    if (!fromShare) saveResultState(lastResult);
+    if (!fromShare) updateFooter();
+    else document.getElementById('resultFooter').innerHTML = '📎 这是好友分享的结果，不会记录到你的历史';
+  }
+
+  function getHighInsight(id) {
+    const m = {
+      money: '经济回报是你最大的职场底气。',
+      time: '时间自由让你能好好生活。',
+      growth: '成长空间充足，未来可期。',
+      social: '人际环境融洽，上班有温度。',
+      mental: '内心充盈，是真正的好工作。'
+    };
+    return m[id] || '是你职场幸福感的核心支柱。';
+  }
+
+  function getLowInsight(id) {
+    const m = {
+      money: '薪资回报偏低，是拉低幸福度的主因。',
+      time: '通勤和加班正在严重消耗你的精力。',
+      growth: '成长停滞，让你对未来缺乏期待。',
+      social: '人际内耗正在侵蚀你的日常。',
+      mental: '心理压力过大，幸福感受损明显。'
+    };
+    return m[id] || '建议优先从这个维度寻找改善空间。';
+  }
+
+  function getConflictInsight(ranked, pct) {
+    const money = ranked.find(s => s.id === 'money');
+    const time = ranked.find(s => s.id === 'time');
+    const mental = ranked.find(s => s.id === 'mental');
+    const low = ranked[ranked.length - 1];
+    if (money.ten >= 7 && time.ten <= 4) return '你最大的矛盾点是：钱给够了，但太累了。建议和领导谈一次弹性办公。';
+    if (mental.ten <= 3 && money.ten >= 6) return '钱给够了，但心已经走了。建议认真评估精神成本。';
+    if (pct >= 60) return '整体幸福度不错，珍惜当下，同时保持对短板的关注。';
+    if (low.ten <= 4) return `建议优先改善【${low.name}】，这可能是提升幸福感的突破口。`;
+    return '多个维度都在拖后腿，建议系统梳理不满清单后再做决策。';
+  }
+
+  function updateFooter() {
+    const txt = formatHistory(getHistory());
+    document.getElementById('footerNote').innerHTML = txt;
+    document.getElementById('resultFooter').innerHTML = txt;
+  }
+
+  function formatHistory(hist) {
+    if (!hist.length) return '📅 暂无历史测试记录';
+    const last = hist[hist.length - 1];
+    const ds = `${new Date(last.date).getMonth() + 1}月${new Date(last.date).getDate()}日`;
+    let trend = '';
+    if (hist.length >= 2) {
+      const dlt = last.score - hist[hist.length - 2].score;
+      if (dlt > 0) trend = ` · <span class="trend-up">↑ +${dlt} 幸福上升</span>`;
+      else if (dlt < 0) trend = ` · <span class="trend-down">↓ ${Math.abs(dlt)} 幸福下降</span>`;
+    }
+    return `📅 上次测试：${ds}，幸福度 ${last.score} 分（${last.level}）${trend}`;
+  }
+
+  function buildShareUrl(pct, tier, dims, rankPct) {
+    const params = new URLSearchParams();
+    params.set('score', String(Math.round(pct)));
+    params.set('level', tier.shortLevel);
+    params.set('tag', tier.fun);
+    params.set('rank', String(rankPct));
+    DIM_KEYS.forEach(dk => {
+      const dim = dims.find(d => d.id === dk.sceneId);
+      if (dim) params.set(dk.key, String(Math.round(dim.ten)));
+    });
+    return location.href.split('?')[0] + '?' + params.toString();
+  }
+
+  function parseShareParams() {
+    const p = new URLSearchParams(location.search);
+    if (!p.has('score')) return null;
+    const required = ['score', 'level', 'tag', 'salary', 'intensity', 'growth', 'social', 'feeling'];
+    for (const k of required) { if (!p.get(k)) return null; }
+    const score = parseInt(p.get('score'), 10);
+    const rankRaw = p.get('rank');
+    const rankPct = rankRaw ? parseInt(rankRaw, 10) : generateRankPct(score);
+    const vals = [parseFloat(p.get('salary')), parseFloat(p.get('intensity')), parseFloat(p.get('growth')), parseFloat(p.get('social')), parseFloat(p.get('feeling'))];
+    if (isNaN(score) || score < 0 || score > 100) return null;
+    if (isNaN(rankPct) || rankPct < 1 || rankPct > 99) return null;
+    if (vals.some(v => isNaN(v) || v < 1 || v > 10)) return null;
+    const tier = getTierByLevel(p.get('level'), score);
+    const tag = p.get('tag');
+    return {
+      pct: score, level: p.get('level'), tag,
+      rankPct,
+      dims: buildDimScores(vals[0], vals[1], vals[2], vals[3], vals[4]),
+      letter: buildHRLetter(score, { ...tier, fun: tag }),
+      heartText: getHeartText(score)
+    };
+  }
+
+  function openSharedResult() {
+    const shared = parseShareParams();
+    if (!shared) return false;
+    isSharedView = true;
+    quizView.classList.add('hidden');
+    analyzing.classList.remove('show');
+    renderResult({
+      pct: shared.pct, tier: getTierByLevel(shared.level, shared.pct), level: shared.level,
+      tag: shared.tag, dims: shared.dims, rankPct: shared.rankPct,
+      letter: shared.letter, heartText: shared.heartText, fromShare: true
+    });
+    resultView.classList.add('show');
+    return true;
+  }
+
+  function clearUrlAndStartQuiz() {
+    isSharedView = false;
+    history.replaceState(null, '', location.pathname + location.hash);
+    answers = new Array(TOTAL_Q).fill(null);
+    currentQ = 0; lastResult = null;
+    localStorage.removeItem(RESULT_KEY);
+    saveProgress();
+    resultView.classList.remove('show');
+    quizView.classList.remove('hidden');
+    document.getElementById('sharedBanner').classList.remove('show');
+    bindQuizEvents();
+    renderQuestion();
+    updateFooter();
+  }
+
+  function copyText(text, msg) {
+    navigator.clipboard.writeText(text).then(() => toast(msg)).catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta);
+      toast(msg);
+    });
+  }
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  function buildShareData(result) {
+    const url = buildShareUrl(result.pct, result.tier, result.dims, result.rankPct);
+    return {
+      title: `我测了一下职场幸福度，${result.pct}分！`,
+      text: `${result.pct}分 · ${result.tier.title} · ${result.tag}`,
+      url
+    };
+  }
+
+  function shareResult() {
+    if (!lastResult) return;
+    const shareData = buildShareData(lastResult);
+    if (navigator.share) {
+      navigator.share(shareData).catch(function (err) {
+        if (err && err.name === 'AbortError') return;
+        copyText(shareData.url, '已复制链接，快去分享给朋友吧！');
+      });
+      return;
+    }
+    copyText(shareData.url, '已复制链接，快去分享给朋友吧！');
+  }
+
+  function openFeedback() {
+    document.getElementById('feedbackModal').classList.add('show');
+  }
+  function closeFeedback() {
+    document.getElementById('feedbackModal').classList.remove('show');
+  }
+
+  function bindQuizEvents() {
+    document.getElementById('btnNext').onclick = goNext;
+    document.getElementById('btnPrev').onclick = goPrev;
+    document.getElementById('btnCopyAll').onclick = shareResult;
+    document.getElementById('btnRetest').onclick = retest;
+    document.getElementById('btnTryMine').onclick = clearUrlAndStartQuiz;
+    document.getElementById('btnReset').onclick = resetAll;
+    document.getElementById('btnReset2').onclick = resetAll;
+  }
+
+  function resetAll() {
+    if (!confirm('确定清空所有数据吗？')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(HISTORY_KEY);
+    localStorage.removeItem(RESULT_KEY);
+    location.reload();
+  }
+
+  function retest() {
+    if (isSharedView) { clearUrlAndStartQuiz(); return; }
+    answers = new Array(TOTAL_Q).fill(null);
+    currentQ = 0; lastResult = null;
+    localStorage.removeItem(RESULT_KEY);
+    saveProgress();
+    resultView.classList.remove('show');
+    quizView.classList.remove('hidden');
+    renderQuestion();
+    updateFooter();
+  }
+
+  function restoreSavedResult() {
+    const saved = loadResultState();
+    if (!saved || !allDone()) return false;
+    const pct = toPercent(rawTotal());
+    if (saved.pct !== pct || saved.answersHash !== answersHash()) return false;
+    const tier = getTier(pct);
+    quizView.classList.add('hidden');
+    analyzing.classList.remove('show');
+    renderResult({
+      pct, tier, level: saved.level || tier.shortLevel, tag: saved.tag || tier.fun,
+      dims: dimsFromAnswers(), rankPct: saved.rankPct,
+      heartText: saved.heartText, letter: { title: saved.letterTitle, body: saved.letterBody },
+      fromShare: false
+    });
+    resultView.classList.add('show');
+    return true;
+  }
+
+  function bindGlobalEvents() {
+    document.getElementById('btnFeedback').onclick = openFeedback;
+    document.getElementById('btnFeedbackClose').onclick = closeFeedback;
+    document.getElementById('feedbackBackdrop').onclick = closeFeedback;
+  }
+
+  function init() {
+    bindGlobalEvents();
+    if (openSharedResult()) {
+      document.getElementById('btnTryMine').onclick = clearUrlAndStartQuiz;
+      document.getElementById('btnReset2').onclick = resetAll;
+      return;
+    }
+    loadProgress();
+    if (restoreSavedResult()) {
+      bindQuizEvents();
+      return;
+    }
+    renderQuestion();
+    updateFooter();
+    bindQuizEvents();
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
